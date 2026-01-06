@@ -35,7 +35,25 @@ cout << sum;
 
 //Task 4:
 int A[] = {32, 45, 29, 66, 41, 58, 327};
+// {29,32,45,66,41,..}
+n = sizeof(A)/sizeof(A[0]);
+for(int i=1; i<n; i++)
+{
+    int lowest = A[i];
+    int j = i-1;
 
-int n = sizeof(A)/sizeof(A[0]);
-
+    while(j >=0 && A[j] > lowest)
+    {
+        A[j+1] = A[j];
+        j--;
+    }
+    A[j+1] = lowest;
 }
+
+cout << "\nThe sorted array is: ";
+for(int i=0; i<n; i++)
+{
+    cout << A[i] << " ";
+}
+}
+
